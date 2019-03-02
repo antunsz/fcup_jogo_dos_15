@@ -3,12 +3,13 @@ import math
 matrix_width = 4
 initial_config = [1,2,3,4,5,6,8,12,13,9,0,7,14,11,10,15]
 final_config = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0]
+#len(initial_config)/matrix_width == matrix_width
 
 def _check_grid_position(initial_config):
     linha = 1
     count = 1
     for i, value in enumerate(initial_config):
-        if count == 4:
+        if count == matrix_width:
             linha += 1
             count = 0
         if 0 in initial_config[i:i+matrix_width]:
