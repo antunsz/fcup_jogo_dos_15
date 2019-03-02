@@ -1,26 +1,36 @@
 import math
 
 matrix_width = 4
-
-
-
 initial_config = [1,2,3,4,5,6,8,12,13,9,0,7,14,11,10,15]
 final_config = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0]
+
+def _check_grid_position(initial_config):
+    linha = 1
+    count = 1
+    for i, value in enumerate(initial_config):
+        if count == 4:
+            linha += 1
+            count = 0
+        if 0 in initial_config[i:i+matrix_width]:
+            break
+        count += 1
+    if linha % 2 == 0:
+        return True
+    else:
+        return False
 
 def _solubility_rules(initial_config, points):
     rule = "par"
     #first rule
-    matrix = _generate_matrix(initial_config)
-    print(matrix)
     if len(initial_config) %2 == 0:
         print("Tabuleiro de tamanho par")
         #second rule
-        if initial_config.index(0) %2 != 0: #TODO: get intercalate row
+        if _check_grid_position(initial_config):
             #solução impar
-            rule = "impar"
+            rule = "par"
         else:
             #third rule
-            rule = "par"
+            rule = "impar"
     else:
         print("Tabuleiro de tamanho impar")
         
@@ -42,28 +52,11 @@ def there_is_no_solution(initial_config, final_config):
     print(points)
     return _solubility_rules(initial_config, points)
 
-def _generate_matrix(array):
-    matrix = []
-    count = 0
-    aux = []
-    for p, i in enumerate(array):
-        if count < matrix_width:
-            aux.append(i)
-            count += 1
-            if p+1 == len(initial_config):
-                matrix.append(aux[:])
-        else:
-            matrix.append(aux[:])
-            aux = []
-            aux.append(i)
-            count = 1
-    return matrix
-
 def init_game():
-    if there_is_no_solution(final_config, initial_config):
-        print("Não há solução")
+    if there_is_no_solution(initial_config, final_config):
+        return False
     else:
-        print("Encontrei uma solução :)")
+        return True
     
 
 if __name__ == "__main__":
