@@ -28,7 +28,7 @@ class Puzzle:
                 layer[0].add_child(Node(value=value, puzzle_position=i+1))
                 layer = layer[0].children
             except Exception as e:
-                print(str(f"position: {i} - error: {e}"))
+                print(str("position: {} - error: {}".format(i, e)))
 
         self.final_tree = tree 
     
