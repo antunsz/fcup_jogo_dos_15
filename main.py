@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 from utils.Checker import Checker
 from utils.Puzzle import Puzzle
 from utils.BL import BL
+=======
+from utils import Checker, Puzzle, Board
+>>>>>>> 06c29f2234229b1182a8fd395207c329d04edd8c
 
 
 initial_config = [1,2,3,4,5,6,8,12,13,9,0,7,14,11,10,15]
@@ -29,9 +33,13 @@ if __name__ == "__main__":
     print("mover para cima")
     puzzle.initial_board.move_up()
     print(puzzle.initial_board)
+<<<<<<< HEAD
     #print(puzzle.final_board)
 
     print("-"*10)
     bl = BL(puzzle)
     bl.solve()
     bl.show_solution()
+=======
+    #print(puzzle.final_board)
+>>>>>>> 06c29f2234229b1182a8fd395207c329d04edd8c
