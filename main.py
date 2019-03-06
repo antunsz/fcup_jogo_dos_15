@@ -19,10 +19,11 @@ checker = Checker(puzzle)
 
 #método que inicial o jogo
 def init_game():
-    #verifica se 
+    #verifica se existe solução para o problema TODO:validar se as duas configurações (inicial e final) possuem solução
     if checker.there_is_no_solution():
         print("Sem solução")
     else:
+        #série de teste, pode-se remover
         print(checker.puzzle.points)
         print(puzzle.number_out_of_place())
         puzzle.print_tree(puzzle.final_tree)
@@ -33,10 +34,14 @@ def init_game():
         print(puzzle.initial_board)
         #print(puzzle.final_board)
 
-        print("-"*10)
+        print("-"*10+"Busca em Largura"+"-"*10)
+        #objeto de busca em largura passando o puzzle
         bl = BL(puzzle)
+        #resolve a busca
         bl.solve()
+        #mostra o conjunto de estados solução
         bl.show_solution()
+        #mostra as fronteiras
         bl.show_frontier()
     
 

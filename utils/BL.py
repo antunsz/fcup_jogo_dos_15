@@ -15,6 +15,7 @@ class BL:
         frontier = queue.Queue()
         frontier.put(start)
         
+        #daqui para baixo acredito que está errado
         while frontier.qsize() > 0:
             tmp = frontier.get()
             
@@ -65,9 +66,13 @@ class BL:
         raise Exception('There is no solution.')
 
     def show_solution(self):
+        depth = 1
         for k, v in self.pred.items():
-            print(k)
+            print("Profundidade {}".format(depth)+":",k)
+            depth += 1
 
     def show_frontier(self):
+        frontier = 1
         for element in list(self.frontier.queue):
-            print(element)
+            print("Frontier {}".format(frontier)+":",element)
+            frontier += 1
