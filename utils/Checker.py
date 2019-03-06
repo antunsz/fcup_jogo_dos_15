@@ -42,6 +42,6 @@ class Checker:
                 self.puzzle.points += 0
             else:
                 self.puzzle.points += len([x for x in self.puzzle.initial_config[i:] if x < value and x != 0])
-                print(f"Position={i} |Pontos = {self.puzzle.points} | inversões = {len([i for i in self.puzzle.initial_config[value:] if i > value])}")
+                print("Position={} |Pontos = {} | inversões = {}".format(i, self.puzzle.points, len([i for i in self.puzzle.initial_config[value:] if i > value])))
 
         return self._solubility_rules()
