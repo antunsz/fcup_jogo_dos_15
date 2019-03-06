@@ -5,7 +5,8 @@ class BL:
     
     def __init__(self, puzzle):
         self.puzzle = puzzle
-        self.pred = {}
+        self.pred = None
+        self.frontier = None
 
     def solve(self):
         start = self.puzzle.initial_board.convert_to_tuple(self.puzzle.initial_board.board)
@@ -59,9 +60,14 @@ class BL:
             
         
             self.pred = pred
+            self.frontier = frontier
 
         raise Exception('There is no solution.')
 
     def show_solution(self):
         for k, v in self.pred.items():
             print(k)
+
+    def show_frontier(self):
+        for element in list(self.frontier.queue):
+            print(element)
