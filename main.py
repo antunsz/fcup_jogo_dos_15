@@ -37,30 +37,25 @@ def init_game():
         print("-"*10+"Busca em Largura"+"-"*10)
         #objeto de busca em largura passando o puzzle
         bl = BL(puzzle)
+        print("Antes")
+        bl.show_size()
         #resolve a busca
-        solution = bl.solve()
-        print("Profundidade:", len(solution))
-        print("Passos para resolução:", solution)
+        bl.search_solution()
+        print("Profundidade:", len(bl.solution))
+        print("Passos para resolução:", bl.solution)
         #mostra o conjunto de estados solução
         #bl.show_solution()
         #mostra as fronteiras
         #bl.show_frontier()
     
         #puzzle.initial_board.move_down()
-        print(puzzle.initial_board.goal)
-        puzzle.initial_board.move_down()
-        puzzle.initial_board.move_left()
-        puzzle.initial_board.move_left()
-        puzzle.initial_board.move_up()
-        puzzle.initial_board.move_right()
-        puzzle.initial_board.move_right()
-        puzzle.initial_board.move_right()
-        puzzle.initial_board.move_up()
-        puzzle.initial_board.move_left()
-        puzzle.initial_board.move_down()
-        puzzle.initial_board.move_down()
-        puzzle.initial_board.move_right()
-        print(puzzle.initial_board)
+        print("-"*15)
+        bl.solve()
+
+        print(bl.time)
+
+        print("Tamanho depois")
+        bl.show_size()
 if __name__ == "__main__":
     assert len(initial_config) == len(final_config), "Os tabuleiros devem possuir o mesmo tamanho."
     
