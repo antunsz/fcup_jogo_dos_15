@@ -18,8 +18,7 @@ class BL:
         #daqui para baixo acredito que está errado
         while frontier.qsize() > 0:
             tmp = frontier.get()
-            
-            if tmp == self.puzzle.initial_board.goal:
+            if tmp == self.puzzle.final_board.goal:
                 path = []
                 while tmp != start:
                     path.append(pred[tmp][1])

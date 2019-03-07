@@ -24,27 +24,43 @@ def init_game():
         print("Sem solução")
     else:
         #série de teste, pode-se remover
-        print(checker.puzzle.points)
-        print(puzzle.number_out_of_place())
-        puzzle.print_tree(puzzle.final_tree)
-        print(puzzle.initial_board)
-        print(puzzle.initial_board.board)
-        print("mover para cima")
-        puzzle.initial_board.move_up()
-        print(puzzle.initial_board)
+        #print(checker.puzzle.points)
+        #print(puzzle.number_out_of_place())
+        #puzzle.print_tree(puzzle.final_tree)
+        #print(puzzle.initial_board)
+        #print(puzzle.initial_board.board)
+        #print("mover para cima")
+        #puzzle.initial_board.move_up()
+        #print(puzzle.initial_board)
         #print(puzzle.final_board)
 
         print("-"*10+"Busca em Largura"+"-"*10)
         #objeto de busca em largura passando o puzzle
         bl = BL(puzzle)
         #resolve a busca
-        bl.solve()
+        solution = bl.solve()
+        print("Profundidade:", len(solution))
+        print("Passos para resolução:", solution)
         #mostra o conjunto de estados solução
-        bl.show_solution()
+        #bl.show_solution()
         #mostra as fronteiras
-        bl.show_frontier()
+        #bl.show_frontier()
     
-
+        #puzzle.initial_board.move_down()
+        print(puzzle.initial_board.goal)
+        puzzle.initial_board.move_down()
+        puzzle.initial_board.move_left()
+        puzzle.initial_board.move_left()
+        puzzle.initial_board.move_up()
+        puzzle.initial_board.move_right()
+        puzzle.initial_board.move_right()
+        puzzle.initial_board.move_right()
+        puzzle.initial_board.move_up()
+        puzzle.initial_board.move_left()
+        puzzle.initial_board.move_down()
+        puzzle.initial_board.move_down()
+        puzzle.initial_board.move_right()
+        print(puzzle.initial_board)
 if __name__ == "__main__":
     assert len(initial_config) == len(final_config), "Os tabuleiros devem possuir o mesmo tamanho."
     
